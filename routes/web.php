@@ -22,7 +22,7 @@ Route::group(['prefix' => '/'], function(){
         return view('welcome');
     });
 
-    Route::group(['prefix' => '/post'], function(){
+    Route::group(['prefix' => '/post', 'middleware' => 'auth'], function(){
         Route::get('/', 'PostController@index')->name('post_index');
         Route::post('/create','PostController@create')->name('post_create');
         Route::get('/update/{id}','PostController@update')->name('post_update');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -39,7 +40,7 @@ class PostController extends Controller
             [
                 'status' => $status,
                 'published_at' => Carbon::create($request->published_at),
-                'created_by' => 1
+                'created_by' => Auth::id()
             ]
         ));
 
@@ -71,7 +72,7 @@ class PostController extends Controller
             [
                 'status' => $status,
                 'published_at' => Carbon::create($request->published_at),
-                'created_by' => 1
+                'created_by' => Auth::id()
             ]
         ));
 
